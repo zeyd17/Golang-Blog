@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/pagestyle.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s10 offset-s1">
+            <!-- içerik -->
+            {{.LayoutContent}}
+            <!-- /içerik -->
+        </div>
+    </div>
+
+</div>
+
+<ul id="slide-out" class="side-nav right-aligned">
+    <li>
+        <div class="userView">
+            <a href="/"><img class="circle" src="/static/img/gopher.png"></a>
+            <a href="/"><span class="black-text name">{{.page.Title}}</span></a>
+        </div>
+    </li>
+
+    <li>
+        <form class="col s12" method="post" action="/">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Arama yap" name="ara" type="text" value="{{.txtAra}}" class="validate">
+                </div>
+            </div>
+        </form>
+    </li>
+
+
+
+    <li><a class="subheader">Kategoriler</a></li>
+    {{ range $key,$val :=.page.Kategoriler}}
+        <li><a href="/Kategori/{{$val.Id}}" class="waves-effect">{{$val.Kategori}}</a></li>
+    {{end}}
+</ul>
+</body>
+</html>

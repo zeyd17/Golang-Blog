@@ -1,0 +1,41 @@
+<div class="card-panel blue-text text-darken-2">
+    <div class="row">
+        <form class="col s12" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="baslik" type="text" name="Baslik" class="validate" value="{{.Post.Baslik}}">
+                    <input  type="hidden" name="Id"  value="{{.Post.Id}}">
+                    <label for="baslik">Başlık</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="ozet" class="materialize-textarea" name="Ozet" >{{.Post.Ozet}}</textarea>
+                    <label for="ozet">Özet</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="detay" class="materialize-textarea" name="Detay">{{.Post.Detay }}</textarea>
+                    <label for="detay">Detay</label>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="input-field col s6">
+                        <select name="Kategori" class="browser-default">
+                            <option value="" disabled selected>Choose your option</option>
+                            {{ range $i ,$val := .Kategoriler}}
+                                <option value="{{$val.Id}}">{{$val.Kategori}}</option>
+                            {{end}}
+                        </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="btn waves-effect waves-light col s6" type="submit" name="action">
+                            Kaydet
+                        </button>
+                    </div>
+            </div>
+
+        </form>
+    </div>
+</div>

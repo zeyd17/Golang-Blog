@@ -1,0 +1,31 @@
+<table class="bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range $i ,$val := .Post}}
+    <tr>
+        <td>
+            <a class="btn-floating  waves-effect waves-light blue" href="/Panel/PostGuncelle/{{$val.Id}}">
+                <i class="material-icons">mode_edit</i>
+            </a>
+            <a class="btn-floating  waves-effect waves-light red" href="/Panel/PostSil/{{$val.Id}}">
+                <i class="material-icons">delete</i>
+            </a>
+        </td>
+        <td>{{$val.Baslik}}</td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+
+
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large green" href="/Panel/PostEkle">
+        <i class="large material-icons">add</i>
+    </a>
+</div>
